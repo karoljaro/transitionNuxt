@@ -1,0 +1,27 @@
+body {
+    font-size: 18px;
+    line-height: 1.1;
+    width: 100%;
+    font-family: $font-medium;
+    letter-spacing: -0.02em;
+}
+
+.page_black {
+    background-color: $color-black;
+    color: $color-white;
+}
+
+.page_white {
+    background-color: $color-white;
+    color: $color-black;
+}
+
+a.router-link-active {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.page-content {
+    max-width: 600px;
+    margin: 0 auto;
+}

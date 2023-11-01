@@ -1,0 +1,11 @@
+@include font-face(
+    "SpaceGrotesk-Medium",
+    "@/assets/fonts/SpaceGrotesk-Medium.ttf",
+    500
+);
+
+@include font-face(
+    "SpaceGrotesk-Bold",
+    "@/assets/fonts/SpaceGrotesk-Bold.ttf",
+    600
+)
