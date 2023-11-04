@@ -5,8 +5,12 @@
 </template>
 
 <script setup lang="ts">
-    import { general } from '~/store';
+import { general } from '~/store';
+definePageMeta({
+    pageTransition: {
+        name: 'page',
+        mode: 'in-out',
+    }
+});
 
 </script>
-    
-<style scoped lang="scss"></style>

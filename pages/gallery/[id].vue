@@ -17,7 +17,7 @@
 
                 <div class="paget-next_project">
                     <NuxtLink class="page-next_project-link hover-fadein h2" :to="`/gallery/${+$route.params.id + 1}`">
-                       next project - {{ +$route.params.id + 1}}
+                        next project - {{ +$route.params.id + 1 }}
                     </NuxtLink>
                 </div>
             </div>
@@ -28,6 +28,34 @@
 
 <script setup lang="ts">
 import { general } from '~/store';
+
+definePageMeta({
+    pageTransition: {
+        name: 'page',
+        mode: 'in-out'
+    }
+
+})
+
+watch(() => [general.isTransitionFinish, general.isPreloaderVisible],
+    ([isTransitionFinish, preloaderVisible]) => {
+
+        if (isTransitionFinish && !preloaderVisible) {
+            contentAnimation({
+                type: 'image',
+                element: '.page-content_block-photo',
+            });
+            contentAnimation({
+                type: 'text',
+                element: '.page-content_block-text',
+            });
+            contentAnimation({
+                type: 'text',
+                element: '.paget-next_project',
+            })
+        }
+
+    });
 
 
 </script>

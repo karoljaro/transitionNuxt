@@ -6,6 +6,10 @@ body {
     letter-spacing: -0.02em;
 }
 
+html::-webkit-scrollbar {
+    display: none;
+}
+
 .page_black {
     background-color: $color-black;
     color: $color-white;

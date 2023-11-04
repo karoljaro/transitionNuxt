@@ -18,6 +18,25 @@
 <script setup lang="ts">
 import { general } from '~/store';
 
+definePageMeta({
+    pageTransition: {
+        name: 'page',
+        mode: 'in-out'
+    }
+})
+
+watch(() => [general.isTransitionFinish, general.isPreloaderVisible],
+    ([transitionFinish, preloaderVisible]) => {
+
+        if (transitionFinish && !preloaderVisible) {
+            contentAnimation({
+                type: 'text',
+                element: '.page-conent_block',
+            })
+        }
+
+    })
+
 </script>
     
 <style scoped lang="scss">

@@ -1,6 +1,9 @@
 <template>
     <div>
         <div id="viewport">
+            
+            <ThePreloader />
+            
             <slot />
         </div>
     </div>
@@ -8,8 +11,8 @@
 
 <script setup lang="ts">
 
+onMounted(() => {
+    useSmoothScrool();
+})
+
 </script>
-
-<style scoped lang="scss">
-
-</style>

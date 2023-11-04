@@ -13,7 +13,26 @@
 
 <script setup lang="ts">
 import { general } from '~/store';
-let key = 0;
+let key: number = 0;
+
+definePageMeta({
+    pageTransition: {
+        name: 'page',
+        mode: 'in-out'
+    }
+})
+
+watch(() => [general.isTransitionFinish, general.isPreloaderVisible],
+    ([isTransitionFinish, preloaderVisible]) => {
+
+        if (isTransitionFinish && !preloaderVisible) {
+            contentAnimation({
+                type: 'image',
+                element: '.page-conent_photo',
+            })
+        }
+
+    });
 
 </script>
     
@@ -23,9 +42,5 @@ let key = 0;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     align-items: flex-start;
-}
-
-.imgag {
-    transition: $default-transition
 }
 </style>
